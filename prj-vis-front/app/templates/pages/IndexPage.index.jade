@@ -1,0 +1,12 @@
+.row-fluid
+  .span12
+    -view(searchResults)
+
+.row-fluid
+  .span12
+    .results
+      ul
+        -for (d <- documents)
+          li
+            -view(d, "search-result")
+

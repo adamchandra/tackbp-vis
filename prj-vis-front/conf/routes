@@ -1,0 +1,6 @@
+# 
+
+GET  /search  controllers.Index.search(query: Option[String], offset: Option[Int])
+GET  /        controllers.Index.scroll(offset: Option[Int])
+
+

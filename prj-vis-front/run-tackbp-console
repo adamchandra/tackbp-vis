@@ -1,0 +1,3 @@
+#!/bin/bash
+
+java -cp "staged/*" edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole

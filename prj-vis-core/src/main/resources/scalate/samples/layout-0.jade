@@ -1,0 +1,49 @@
+-@ val body: String
+
+!!!5
+html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+  head
+    - val assetsVersion = 13
+
+    meta(http-equiv="content-type" content="text/html; charset=UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="")
+    meta(name="author" content="")
+      
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/bootstrap-spacelab/css/bootstrap.css")/
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/stylesheets/bootstrap-datepicker.css")/
+    link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato")/
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/stylesheets/application.css")/
+
+    script(src="/assets/#{assetsVersion}/javascripts/jquery.js")
+
+    script(src="/assets/#{assetsVersion}/bootstrap-spacelab/js/bootstrap.js")
+    script(src="/assets/#{assetsVersion}/javascripts/spin.min.js")
+    
+    script(src="/assets/#{assetsVersion}/javascripts/bootstrap-ajax.js")
+    script(src="/assets/#{assetsVersion}/javascripts/bootstrap-datepicker.js")
+    script(src="/assets/#{assetsVersion}/javascripts/application.js")
+
+  body
+
+    #wrap
+      #main.container-fluid.clear-top
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container-fluid
+              .row-fluid
+                .span12
+                  a.brand(href="/")
+                    span.logo.green open
+                    span.logo.blue> review
+                    span.logo.green> .net
+                  
+        .container-fluid.below-navbar
+          .row-fluid
+            .span12
+              - unescape(body)
+          .row.hbar-red
+    
+    footer.footer.center
+      .row-fluid
+        | Footer

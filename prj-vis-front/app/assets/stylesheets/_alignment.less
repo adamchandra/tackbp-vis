@@ -1,0 +1,128 @@
+
+// http://css-tricks.com/centering-in-the-unknown/
+
+/* This parent can be any width and height */
+.block {
+  text-align: center;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can
+   also be of any width and height */
+.vcentered {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bottom {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.fixedheight { height: 108px; position:relative; border:1px solid; background:#aaa; }
+
+.bottomaligned {position:absolute; bottom:0; width: 100%; }
+
+
+// http://stackoverflow.com/questions/10099422/flushing-footer-to-bottom-of-the-page-twitter-bootstrap
+html, body {
+  height: 100%;
+}
+form,input,textarea,select {
+  max-width: 100%;
+}
+
+.form-horizontal .controls {
+  margin-left: 20%;
+  max-width: 75%;
+}
+
+.form-horizontal .control-label {
+  width: 18%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:140px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -120px; /* negative value of footer height */
+  height: 120px;
+  clear:both;
+  padding-top:20px;
+} 
+
+.spacedout {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+// http://stackoverflow.com/questions/12029499/set-a-minimum-width-for-the-sidebar-nav-in-twitter-bootstrap
+.sidebar {
+  position: fixed;
+  //width: 200px;
+  width: 15em;
+}
+.sidebarbody {
+  //margin-left: 220px;
+  margin-left: 17em;
+}
+
+.control-label-like {
+  //float: left;
+  //width: 160px;
+  padding-top: 5px;
+  //text-align: right;
+}
+
+.repeatedformelement {
+  margin-top: 5px;
+}
+
+.form-horizontal .control-group-inline:before,
+.form-horizontal .control-group-inline:after {
+  display: inline;
+  content: "";
+  line-height: 0;
+}
+.form-horizontal .control-group-inline:after {
+  clear: none;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+.inlineblock {
+  display: inline-block
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.center {
+  text-align: center;
+}
+
+.tdright {
+  align: right;
+}

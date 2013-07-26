@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" debug="false">
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+        <pattern>[%c{1}] %7p\) %msg%n</pattern> 
+        <!-- 
+             <pattern>[%c{1}] [%t] %7p\)  %msg%n</pattern> 
+             <pattern>%7p\) %msg%n</pattern>
+        -->
+    </encoder>
+  </appender>
+
+  <!-- disable embedded jetty server avalanche logging -->
+  <logger name="org.eclipse.jetty" level="WARN" />
+
+  <logger name="org.apache.camel" level="WARN" />
+
+  <!-- this removes amq's debug msgs during unit testing -->
+  <logger name="org.apache.activemq.broker" level="DEBUG" />
+
+  <logger name="org.fusesource.scalate" level="WARN" />
+
+  <logger name="org.apache.camel.test.junit4.CamelTestSupport" level="DEBUG" />
+  <logger name="cc.rexa2.front.core.lib.camelpipe.CamelPipeSpec" level="DEBUG" />
+
+  <logger name="cc.rexa2" level="INFO" />
+
+  <logger name="com.mongodb.casbah.commons.conversions.scala" level="INFO"/>
+  
+
+  <root level="DEBUG">
+    <appender-ref ref="stdout"/>
+  </root>
+</configuration>
+

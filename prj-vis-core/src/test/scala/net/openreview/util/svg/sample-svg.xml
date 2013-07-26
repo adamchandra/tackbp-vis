@@ -1,0 +1,114 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width: 2030px; height: 150px;">
+      <defs>
+        <filter id="Gaussian_Blur">
+          <fegaussianblur in="SourceGraphic" stddeviation="2"></fegaussianblur>
+        </filter>
+        <marker id="drag_arrow" refX="5" refY="2.5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth" class="drag_fill">
+          <polyline points="0,0 5,2.5 0,5 0.2,2.5"></polyline>
+        </marker>
+        <marker id="arrow_triangle_5_blue" refX="5" refY="2.5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth" fill="blue">
+          <polyline points="0,0 5,2.5 0,5 0.4166666666666667,2.5"></polyline>
+        </marker>
+      </defs>
+      <g class="background">
+        <rect x="0" y="5" width="2030" height="106" fill="rgba(0, 0, 0, 0.2)" class="background0"></rect>
+      </g>
+      <g class="glow"></g>
+      
+      <!-- <g class="highlight">                                                                -->
+      <!--   <rect x="25" y="93" width="37" height="15" fill="#ffffff" rx="3" ry="3"></rect>    -->
+      <!--   <rect x="84" y="93" width="26" height="15" fill="#ffffff" rx="3" ry="3"></rect>    -->
+      <!--   <rect x="157.5" y="93" width="19" height="15" fill="#ffffff" rx="3" ry="3"></rect> -->
+      <!--   <rect x="189.5" y="93" width="12" height="15" fill="#ffffff" rx="3" ry="3"></rect> -->
+      <!-- </g>                                                                                 -->
+
+
+      <!-- token text -->
+      <g transform="translate(0, 60)">
+        <g class="text">
+          <text x="0" y="0">
+            <tspan x="25" y="0" data-chunk-id="0">China</tspan>
+            <tspan x="84" y="0" data-chunk-id="1">look</tspan>
+            <tspan x="157.5" y="0" data-chunk-id="2">set</tspan>
+            <tspan x="189.5" y="0" data-chunk-id="3">to</tspan>
+          </text>
+        </g>
+      </g>
+
+      <!-- arcs -->
+      <g transform="translate(0, 50)">
+        <g class="arcs">
+
+          <g>
+            <path d="M80,0 L80,-4 Q115,-20,157,-4 L157,0" style="stroke: black; fill: rgba(0, 0, 0, 0.3);" marker-end="url(#arrow_triangle_5_blue)" />
+          </g>
+
+          <g>
+            <path d="M150,0 Q175,-50 200,0" style="stroke: black; stroke-width: 1.5; fill: none;" marker-end="url(#arrow_triangle_5_blue)" />
+          </g>
+
+          <g data-from="T1" data-to="T2">
+            <path d="M 116.25,-33.5 L115.25,-33.5 Q111.875,-33.5 108.5,-26" style="stroke: blue" stroke-dasharray="6-6"></path>
+            <path d="M 146.25,-33.5 L147.25,-33.5 Q150.625,-33.5 154,-31.5" marker-end="url(#arrow_triangle_5_blue)" style="stroke: blue" stroke-dasharray="6-6"></path>
+          </g>
+          <g data-from="T0" data-to="T1">
+            <path d="M64.5,-33.5L63.5,-33.5Q61,-33.5 58.5,-26" style="stroke: blue" stroke-dasharray="6-6"></path>
+            <path d="M80.5,-33.5L81.5,-33.5Q84,-33.5 86.5,-31.5" marker-end="url(#arrow_triangle_5_blue)" style="stroke: blue" stroke-dasharray="6-6"></path>
+          </g>
+        </g>
+      </g>
+
+      
+      <!-- arc endpoint labels -->
+      <g transform="translate(0, 50)">
+        <g transform="translate(25, 0)">
+          <g class="span">
+            <text x="0" y="0" fill="black">nsubj</text>
+          </g>
+        </g>
+        <g transform="translate(199, 0)">
+          <g></g>
+          <g class="span">
+            <text x="0" y="0" fill="black">nn</text>
+          </g>
+        </g>
+      </g>
+
+      <g transform="translate(0, 110)">
+        <g transform="translate(25, 0)">
+          <g class="span">
+            <text x="0" y="0" fill="black">NNP</text>
+          </g>
+        </g>
+        <g transform="translate(84, 0)">
+          <g class="span">
+            <text x="0" y="0" fill="black">NN</text>
+          </g>
+        </g>
+        <g transform="translate(157.5, 0)">
+          <g class="span">
+            <text x="0" y="0" fill="black">VBD</text>
+          </g>
+        </g>
+        <g transform="translate(199, 0)">
+          <g></g>
+          <g class="span">
+            <text x="0" y="0" fill="black">TO</text>
+          </g>
+        </g>
+      </g>
+
+      
+      
+      <path marker-end="url(#drag_arrow)" class="drag_stroke" fill="none" visibility="hidden"></path>
+
+
+    </svg>
+
+  </body>
+</html>

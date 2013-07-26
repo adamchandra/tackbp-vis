@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+  </head>
+  <body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width: 2030px; height: 111px;">
+      <!-- document: undefined/undefined -->
+      <defs>
+        <filter id="Gaussian_Blur">
+          <fegaussianblur in="SourceGraphic" stddeviation="2"></fegaussianblur>
+        </filter>
+        <marker id="drag_arrow" refX="5" refY="2.5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth" class="drag_fill">
+          <polyline points="0,0 5,2.5 0,5 0.2,2.5"></polyline>
+        </marker>
+        <marker id="arrow_triangle_5_blue" refX="5" refY="2.5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth" fill="blue">
+          <polyline points="0,0 5,2.5 0,5 0.4166666666666667,2.5"></polyline>
+        </marker>
+      </defs>
+      <g class="background">
+        <rect x="0" y="5" width="2030" height="106" class="background0"></rect>
+      </g>
+      <g class="glow"></g>
+      <g class="highlight">
+        <rect x="25" y="93" width="37" height="15" fill="#ffffff" rx="3" ry="3"></rect>
+        <rect x="84" y="93" width="26" height="15" fill="#ffffff" rx="3" ry="3"></rect>
+        <rect x="157.5" y="93" width="19" height="15" fill="#ffffff" rx="3" ry="3"></rect>
+        <rect x="189.5" y="93" width="12" height="15" fill="#ffffff" rx="3" ry="3"></rect>
+      </g>
+
+      <g class="text">
+        <text x="0" y="0">
+          <tspan x="25" y="105" data-chunk-id="0">China</tspan>
+          <tspan x="84" y="105" data-chunk-id="1">look</tspan>
+          <tspan x="157.5" y="105" data-chunk-id="2">set</tspan>
+          <tspan x="189.5" y="105" data-chunk-id="3">to</tspan>
+        </text>
+      </g>
+
+      <g transform="translate(0, 105)">
+        <g></g>
+        <g transform="translate(25, 0)">
+          <g></g>
+          <g class="span">
+            <rect x="4.5" y="-33.5" width="29" height="15" class="span_NNP span_default" fill="white" stroke="#000000" rx="3" ry="2" data-span-id="T0" data-fragment-id="0"></rect>
+            <text x="18.5" y="-22" fill="black">NNP</text>
+            <path d="M0,-11.5C0,-17.5 18.5,-11.5 18.5,-17.5C18.5,-11.5 37,-17.5 37,-11.5" class="curly" stroke="#000000"></path>
+          </g>
+        </g>
+        <g transform="translate(84, 0)">
+          <g></g>
+          <g class="span">
+            <rect x="2.5" y="-33.5" width="22" height="15" class="span_NN span_default" fill="white" stroke="#000000" rx="3" ry="2" data-span-id="T1" data-fragment-id="0"></rect>
+            <text x="13.5" y="-22" fill="black">NN</text>
+            <path d="M0,-11.5C0,-17.5 13.5,-11.5 13.5,-17.5C13.5,-11.5 26,-17.5 26,-11.5" class="curly" stroke="#000000"></path>
+          </g>
+        </g>
+        <g transform="translate(157.5, 0)">
+          <g></g>
+          <g class="span">
+            <rect x="-3.5" y="-33.5" width="28" height="15" class="span_VBD span_default" fill="white" stroke="#000000" rx="3" ry="2" data-span-id="T2" data-fragment-id="0"></rect>
+            <text x="9.5" y="-22" fill="black">VBD</text>
+            <path d="M0,-11.5C0,-17.5 9.5,-11.5 9.5,-17.5C9.5,-11.5 19,-17.5 19,-11.5" class="curly" stroke="#000000"></path>
+          </g>
+        </g>
+        <g transform="translate(189.5, 0)">
+          <g></g>
+          <g class="span">
+            <rect x="-3.5" y="-33.5" width="21" height="15" class="span_TO span_default" fill="white" stroke="#000000" rx="3" ry="2" data-span-id="T3" data-fragment-id="0"></rect>
+            <text x="6.5" y="-22" fill="black">TO</text>
+            <path d="M0,-11.5C0,-17.5 6.5,-11.5 6.5,-17.5C6.5,-11.5 12,-17.5 12,-11.5" class="curly" stroke="#000000"></path>
+          </g>
+        </g>
+
+        <g class="arcs">
+          <g data-from="T1" data-to="T2">
+            <text x="131.25" y="-30.25" fill="blue" data-arc-role="nsubj" data-arc-origin="T1" data-arc-target="T2" data-arc-ed="R1">nsubj</text>
+            <path d="M116.25,-33.5L115.25,-33.5Q111.875,-33.5 108.5,-26" style="stroke: blue" stroke-dasharray="6-6"></path>
+            <path d="M146.25,-33.5L147.25,-33.5Q150.625,-33.5 154,-31.5" marker-end="url(#arrow_triangle_5_blue)" style="stroke: blue" stroke-dasharray="6-6"></path>
+          </g>
+          <g data-from="T0" data-to="T1">
+            <text x="72.5" y="-30.25" fill="blue" data-arc-role="nn" data-arc-origin="T0" data-arc-target="T1" data-arc-ed="R0">nn</text>
+            <path d="M64.5,-33.5L63.5,-33.5Q61,-33.5 58.5,-26" style="stroke: blue" stroke-dasharray="6-6"></path>
+            <path d="M80.5,-33.5L81.5,-33.5Q84,-33.5 86.5,-31.5" marker-end="url(#arrow_triangle_5_blue)" style="stroke: blue" stroke-dasharray="6-6"></path>
+          </g>
+        </g>
+      </g>
+
+      <path marker-end="url(#drag_arrow)" class="drag_stroke" fill="none" visibility="hidden"></path>
+
+
+    </svg>
+
+
+
+  </body>
+</html>

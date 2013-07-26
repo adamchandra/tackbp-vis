@@ -1,0 +1,17 @@
+-import edu.umass.cs.iesl.tackbp.vis.admin._
+
+-@val documents: Seq[Document]
+-@val searchResults: SearchResults
+
+.row-fluid
+  .span12
+    -view(searchResults, "pager")
+
+.row-fluid
+  .span12
+    .results
+      ul
+        -for (d <- documents)
+          li
+            -view(d, "search-result")
+

@@ -1,0 +1,69 @@
+!!!5
+- import nav.nav.assetsVersion
+
+-@ val body: String
+-@ val headScripts: String = ""
+
+
+html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+  head
+
+    meta(http-equiv="content-type" content="text/html; charset=UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="")
+    meta(name="author" content="")
+      
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/bootstrap-spacelab/css/bootstrap.css")/
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/stylesheets/bootstrap-datepicker.css")/
+    link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato")/
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/stylesheets/application.css")/
+
+    script(src="/assets/#{assetsVersion}/javascripts/jquery.js")
+
+    script(src="/assets/#{assetsVersion}/bootstrap-spacelab/js/bootstrap.js")
+    script(src="/assets/#{assetsVersion}/javascripts/spin.min.js")
+    
+    script(src="/assets/#{assetsVersion}/javascripts/bootstrap-ajax-plus.js")
+    script(src="/assets/#{assetsVersion}/javascripts/bootstrap-datepicker.js")
+    script(src="/assets/#{assetsVersion}/javascripts/application.js")
+
+    link(rel="stylesheet" type="text/css" href="/assets/#{assetsVersion}/brat/style-vis.css")
+    script(type="text/javascript" src="/assets/#{assetsVersion}/brat/client/lib/head.load.min.js")
+      
+    script(type="text/javascript")
+      | //<![CDATA[
+      - unescape(headScripts)
+      | //]]>
+
+  body
+
+    #wrap
+      #main.container-fluid.clear-top
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container-fluid
+              .row-fluid
+                .span6
+                  a.brand(href="/")
+                    span.logo.blue> TAC-KBP Visualizer 
+                .span6
+                  .search.pull-right
+                    form.form-search(action="/search" method="POST")
+                      input.input-medium.search-query(type="search" name="query")
+                      button.btn(type='submit') Search
+
+        .container-fluid.below-navbar
+          .row-fluid
+            .span12
+              - unescape(body)
+          .row.hbar-red
+    
+    footer.footer.center
+      .row-fluid
+        .span10.offset1
+          .center
+            | Created by the 
+            = " "
+            a(href="http://iesl.cs.umass.edu")> Information Extraction and Synthesis Laboratory
+            |, School of Computer Science,
+            | University of Massachusetts Amherst.

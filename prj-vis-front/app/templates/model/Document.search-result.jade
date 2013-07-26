@@ -1,0 +1,6 @@
+span
+  a(href={"/document/"+id})
+    | #{displayName}
+  span
+    - val text = it.combinedText
+    = text.substring(0, (120 min text.length))

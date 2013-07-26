@@ -1,0 +1,47 @@
+.row-fluid
+  .span12
+    .btn-group(data-toggle="buttons-radio")
+      button#select-dep.btn.active Dep
+      button#select-ner.btn NER
+
+
+.row-fluid
+  .span12.sections
+    -for ((s, i) <- sections.zipWithIndex)
+      -template(s)("snum" -> i)
+
+:!javascript
+  var collData = #{it.collData.toJsCmd};
+  var depData = #{it.depData.toJsCmd};
+  var sectionCount = #{sections.length};
+
+:coffeescript
+
+  dispatch = []
+  
+  head.ready(() ->
+    for i in [0 ... sectionCount]
+      dispatch[i] = Util.embed(('inline-viewer'+i),
+        collData,
+        depData[i],
+        webFontURLs)
+  )
+
+  $('#select-dep').click (e) ->
+    toggleDep()
+   
+  $('#select-ner').click (e) ->
+    toggleNer()
+
+
+  isActive = () ->
+    $(this).is('active')
+   
+  toggleDep = () ->
+    for i in [0 ... sectionCount]
+      dispatch[i].post('requestRenderData', [depData[i]])
+
+   
+
+   
+

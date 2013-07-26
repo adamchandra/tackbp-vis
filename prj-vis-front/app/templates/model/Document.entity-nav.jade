@@ -1,0 +1,191 @@
+:css
+  .highlightx {
+    stroke: rgb(240, 58, 0);
+    stroke-width: 3; 
+    opacity: 1;
+  }
+
+  .is-canonical:before {
+    content: '<c> ';
+  }
+
+  ul.mention-navlist > li.evencol {
+  }
+
+  ul.mention-navlist > li.oddcol {
+    background: #eee;
+  }
+
+  ul.mention-navlist > li:hover {
+    background: rgb(240, 58, 0);
+  }
+
+  #entity-nav {
+    border-top-style:     solid;
+    border-top-width:     2px;
+  }
+
+  #entity-nav.striped .even-row {
+    background: #eee;
+  }
+
+  td.mention-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  a.mention-nav {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .nav-control {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .nav-controls {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+
+.enav
+  #accordion2.accordion
+    .accordion-group
+      .accordion-heading
+        .nav-controls
+          a.accordion-toggle.nav-control(data-toggle='collapse' data-parent='#accordion2' href='#collapseOne')
+            | Mentions
+          button#toggle-grouping.btn.btn-action.btn-mini.nav-control(data-toggle="buttons-checkbox") Grouped
+
+      #collapseOne.accordion-body.collapse.in
+        .accordion-inner.enavtree
+          table#entity-nav.table
+
+    .accordion-group
+      .accordion-heading
+        a.accordion-toggle(data-toggle='collapse' data-parent='#accordion2' href='#collapseTwo')
+          | NER
+      #collapseTwo.accordion-body.collapse
+        .accordion-inner
+          table#ner-nav.table.enavtree
+
+:!javascript
+  var mentions = #{it.mentionJsArray.toJsCmd}
+
+:!coffeescript
+  sortTable = (tableid, col) ->
+    tbl = document.getElementById(tableid).tBodies[0]
+    store = []
+    for row in tbl.rows
+      sortnr = parseFloat(row.cells[col].textContent || row.cells[col].innerText)
+      if not isNaN(sortnr)
+        store.push([sortnr, row]);
+   
+    store.sort((x,y) -> x[0] - y[0])
+   
+    for i in [0 ... store.length]
+      $(tbl).append(store[i][1])
+   
+    store = null;
+
+  textNode = (content) -> 
+    document.createTextNode(content)
+
+  createTD = (cls, tr, content) -> 
+    td = document.createElement('td')
+    $(td).append(content)
+    $(td).addClass(cls)
+    $(tr).append(td)
+    
+
+  populateMentionNav = () ->
+    enav = $("#entity-nav")
+    for m in mentions
+      tr = document.createElement('tr')
+      [docOrd, entId, canonNum, mentionType, sectionNum, tokStart, tokLen, text] = m
+
+      if entId % 2 == 0
+        $(tr).addClass('even-row')
+        
+      createTD("hidden", tr, textNode(docOrd))
+      createTD("hidden", tr, textNode(canonNum))
+      createTD("entity-num", tr, textNode(entId))
+      createTD("mention-type", tr, textNode(mentionType))
+    
+      mentionNav = document.createElement('a')
+      $(mentionNav).append(textNode(text))
+      $(mentionNav).attr("href", "#")
+      $(mentionNav).addClass("mention-nav")
+      $(mentionNav).attr("title", text)
+
+      if canonNum == 0
+        $(mentionNav).addClass("is-canonical")
+      
+      $(mentionNav).attr("data-chunk-id", tokStart)
+      $(mentionNav).attr("data-chunk-len", tokLen)
+      $(mentionNav).attr("data-section-num", sectionNum)
+      createTD("mention-text", tr, mentionNav)
+
+      $(enav).append(tr)
+
+
+  $("#toggle-grouping").click((e) ->
+    if $(this).hasClass('active')
+      sortTable("entity-nav", 0)
+      $("#entity-nav").removeClass('striped')
+    else
+      sortTable("entity-nav", 2)
+      $("#entity-nav").addClass('striped')
+  )
+
+
+  populateMentionNav()
+  sortTable("entity-nav", 0)
+  
+  tspanid = (id, n) ->
+    ".section-"+n+" tspan[data-chunk-id='"+id+"']"
+
+  backgroundid = (id, n) ->
+    ".section-"+n+" svg g.background ='"+id+"']"
+
+  $(".mention-nav").each((i) -> 
+    dataChunkId = $(this).attr("data-chunk-id")
+    dataChunkLen = $(this).attr("data-chunk-len")
+    sectionNum = $(this).attr("data-section-num")
+
+    jqid = tspanid(dataChunkId, sectionNum)
+
+    $(this).click((e) ->
+      y = $(jqid).attr('y')
+      sections = $(".sections")
+      sections.scrollTop(y - 30)
+    )
+
+    $(this).hover( 
+      () -> 
+        @e2 = $(".section-"+sectionNum+" .span rect[data-span-id='T"+dataChunkId+"']")
+        @e3 = $(jqid)
+
+        $(@e2).mouseover()
+        curr = @e3
+        for i in [0 ... dataChunkLen]
+          x = $(curr).attr('x')
+          highlightOverlay = '.section-'+sectionNum+' svg g.highlight rect[x="'+x+'"]'
+          $(highlightOverlay).attr('fill', '#ddccbb')
+          curr = $(curr).next()
+      () -> 
+        $(@e2).mouseout()
+        curr = @e3
+        for i in [0 ... dataChunkLen]
+          x = $(curr).attr('x')
+          highlightOverlay = 'svg g.highlight rect[x="'+x+'"]'
+          $(highlightOverlay).attr('fill', '#FFF')
+          curr = $(curr).next()
+    )
+  )
+  
+  
+  
+

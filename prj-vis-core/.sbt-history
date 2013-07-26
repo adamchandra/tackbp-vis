@@ -1,0 +1,62 @@
+compile
+reload
+compile
+project vis-front
+compile
+ensime generate
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+clean
+compile
+clean
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+project vis-front
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+project vis-front
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+project vis-front
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+stage
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+project vis-front
+test:compile
+test-only net.openreview.util.annotation.AnnotationSpec
+~ test-only net.openreview.util.annotation.AnnotationSpec
+compile
+project vis-front
+test:compile
+run
+project vis-front
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+ensime generate
+reload
+compile
+project vis-core
+compile
+ensime generate
+run-main
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+reload
+update
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+ensime generate
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+test:compile
+test-only net.openreview.util.svg.SvgRenderingSpec
+reload
+compile
+ensime generate
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TackBPConsole
+compile
+run-main edu.umass.cs.iesl.tackbp.vis.admin.TacKbpConsole
